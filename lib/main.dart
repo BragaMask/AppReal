@@ -43,14 +43,33 @@ class MyHomePage extends StatelessWidget {
             ),
           ),
           Column(
-            children: _transactions.map(
-              (tr) {
-                return Card(
-                  child: Text(tr.title),
-                );
-              }
-            ).toList()
-          )
+              children: _transactions.map((tr) {
+            return Card(
+                child: Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 10,
+                  ), //Espaçamentos das margens do "value"
+
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 2),
+                  ), //Borda do "value"
+
+                  padding: EdgeInsets.all(10),
+                  child: Text(tr.value.toString()),
+                ), 
+
+                Column(
+                  children: [
+                    Text(tr.title),
+                    Text(tr.date.toString()),
+                  ],
+                )
+              ],
+            ));
+          }).toList())
         ],
       ),
     );
