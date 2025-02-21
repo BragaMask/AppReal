@@ -14,15 +14,12 @@ class ExpensesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  
-
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
