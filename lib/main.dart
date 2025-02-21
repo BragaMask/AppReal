@@ -1,9 +1,5 @@
-import 'package:appreal/components/transaction_form.dart';
-import 'package:appreal/components/transaction_list.dart';
 import 'package:appreal/components/transaction_user.dart';
-import 'package:appreal/transaction.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 main() => runApp(const ExpensesApp());
 
@@ -25,20 +21,30 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Despesas Pessoais"),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.add),
+          )
+        ],
       ),
-      body: Column(
+      body: const Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            child: Card(
-              color: Colors.blue,
-              child: Text("Gráfico"),
-              elevation: 5,
-            ),
+          Card(
+            color: Colors.blue,
+            elevation: 5,
+            child: Text("Gráfico"),
           ),
           TransactionUser(),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.purple[200],
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

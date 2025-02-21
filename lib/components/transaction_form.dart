@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class TransactionForm extends StatelessWidget {
@@ -37,9 +35,9 @@ class TransactionForm extends StatelessWidget {
             ),
             TextField(
               controller: valueController,
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_) => _submitForm(),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'valor (R\$)',
               ),
             ),
