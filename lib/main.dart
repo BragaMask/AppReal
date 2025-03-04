@@ -4,43 +4,44 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'components/transaction_list.dart';
 
- 
 main() => runApp(ExpensesApp());
- 
+
 class ExpensesApp extends StatelessWidget {
   ExpensesApp({super.key});
   final ThemeData tema = ThemeData();
- 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
       theme: ThemeData //Dados do Tema
-      (
-        useMaterial3: false,  // Desabilita o uso do Material Design 3
+          (
+        useMaterial3: false, // Desabilita o uso do Material Design 3
         appBarTheme: const AppBarTheme //Os temas da AppBar
-        (
+            (
           backgroundColor: Colors.purple, //Cor do fundo
-          foregroundColor: Colors.white,  //Cor dos elementos
+          foregroundColor: Colors.white, //Cor dos elementos
         ),
-        colorScheme: //Esquema de cores para o aplicativo 
-        ColorScheme.fromSeed(
+        colorScheme: //Esquema de cores para o aplicativo
+            ColorScheme.fromSeed(
           seedColor: Colors.amber, //Gera o esquema de cores
           primary: Colors.purple, //Cor primária
           secondary: Colors.amber, //Cor secundária
         ),
+        fontFamily: "RobotoSlab",
       ),
     );
   }
 }
- 
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
- 
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
- 
+
 class _MyHomePageState extends State<MyHomePage> {
   final _transactions = [
     Transaction(
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       date: DateTime.now(),
     ),
   ];
- 
+
   _addTransaction(String title, double value) {
     final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
@@ -64,14 +65,14 @@ class _MyHomePageState extends State<MyHomePage> {
       value: value,
       date: DateTime.now(),
     );
- 
+
     setState(() {
       _transactions.add(newTransaction);
     });
- 
+
     Navigator.of(context).pop();
   }
- 
+
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -80,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
